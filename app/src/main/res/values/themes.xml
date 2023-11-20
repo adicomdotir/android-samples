@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.MyAppMVVMCleanArchitectureSample" parent="Base.Theme.MyAppMVVMCleanArchitectureSample" />
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
