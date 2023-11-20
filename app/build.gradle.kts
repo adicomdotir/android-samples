@@ -58,4 +58,8 @@ dependencies {
     implementation("androidx.room:room-runtime:2.1.0")
     implementation("androidx.room:room-ktx:2.1.0")
     kapt("androidx.room:room-compiler:2.1.0")
+
+    // Dagger
+    implementation("com.google.dagger:dagger-android:2.48.a")
+    annotationProcessor("com.google.dagger:dagger-android-processor:2.48.1")
 }

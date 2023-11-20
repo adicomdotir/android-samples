@@ -23,6 +23,10 @@ class SharedPreferencesHelper(context: Context) : Storage {
         val json = sharedPreferences.getString(key, null)
         val type = object : TypeToken<ArrayList<Notes?>?>() {}.type
 
-        return Gson().fromJson(json, type)
+        return try {
+            Gson().fromJson(json, type)
+        } catch (e: Exception) {
+            ArrayList()
+        }
     }
 }
