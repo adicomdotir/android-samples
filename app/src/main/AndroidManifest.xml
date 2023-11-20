@@ -13,13 +13,19 @@
         android:theme="@style/Theme.MyAppMVVMCleanArchitectureSample"
         tools:targetApi="31">
         <activity
-            android:name=".tasks.TasksActivity"
+            android:name=".displaynotes.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".addnotes.AddNotesActivity"
+            android:exported="true">
         </activity>
     </application>
 
