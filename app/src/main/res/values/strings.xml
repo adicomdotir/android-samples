@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My App MVVM Clean Architecture Sample</string>
+    <string name="start">Start</string>
+    <string name="cancel">Cancel</string>
 </resources>
