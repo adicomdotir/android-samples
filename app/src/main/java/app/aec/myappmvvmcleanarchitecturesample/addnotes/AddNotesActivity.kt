@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import app.aec.myappmvvmcleanarchitecturesample.MyApplication
 import app.aec.myappmvvmcleanarchitecturesample.R
 import java.time.LocalDate
 
@@ -14,6 +15,8 @@ class AddNotesActivity : AppCompatActivity() {
     private lateinit var addNotesViewModel: AddNotesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyApplication).appComponent.addNotesComponent().create().inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_notes)
 

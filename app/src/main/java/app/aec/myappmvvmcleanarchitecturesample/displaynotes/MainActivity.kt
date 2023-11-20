@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import app.aec.myappmvvmcleanarchitecturesample.MyApplication
 import app.aec.myappmvvmcleanarchitecturesample.R
 import app.aec.myappmvvmcleanarchitecturesample.addnotes.AddNotesActivity
 import app.aec.myappmvvmcleanarchitecturesample.addnotes.AddNotesViewModel
@@ -24,20 +25,24 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
+    @Inject
+    lateinit var mainViewModelFactory: MainViewModelFactory
     private lateinit var viewModel: MainViewModel
     private var viewManager = LinearLayoutManager(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyApplication).appComponent.mainComponent().create().inject(this)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.recyclerView)
-        val factory = MainViewModelFactory(SharedPreferencesHelper(this))
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+        viewModel = ViewModelProvider(this, mainViewModelFactory)[MainViewModel::class.java]
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {

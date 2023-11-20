@@ -4,10 +4,11 @@ import android.content.Context
 import app.aec.myappmvvmcleanarchitecturesample.displaynotes.Notes
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import javax.inject.Inject
 
 private const val ADD_NOTES = "add_notes"
 
-class SharedPreferencesHelper(context: Context) : Storage {
+class SharedPreferencesHelper @Inject constructor(context: Context) : Storage {
     private val sharedPreferences =
         context.getSharedPreferences("NOTES_STORAGE", Context.MODE_PRIVATE)
 
