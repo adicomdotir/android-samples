@@ -51,12 +51,11 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
-    implementation("com.google.code.gson:gson:2.10.1")
 
 
     // Architecture Components
-//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-//    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion")
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion")
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
     implementation("androidx.room:room-runtime:2.1.0")
@@ -65,7 +64,11 @@ dependencies {
 
     // Dagger
     implementation("com.google.dagger:dagger-android:2.48.1")
-    implementation ("com.google.dagger:dagger-android-support:2.48.1")
+    implementation("com.google.dagger:dagger-android-support:2.48.1")
     annotationProcessor("com.google.dagger:dagger-android-processor:2.48.1")
     kapt("com.google.dagger:dagger-compiler:2.48.1")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
