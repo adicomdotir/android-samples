@@ -7,9 +7,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class UsersUseCase(private val repository: CustomRepository) {
-    operator fun  invoke(): Flow<Response<List<User>>> = flow {
+class UsersUseCase @Inject constructor(
+    private val repository: CustomRepository
+) {
+    operator fun invoke(): Flow<Response<List<User>>> = flow {
         try {
             emit(Response.Loading())
             val list = repository.getUsers().map {
