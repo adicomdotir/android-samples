@@ -12,13 +12,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.work.Constraints
+import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import app.aec.myappmvvmcleanarchitecturesample.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.time.Duration
 
 class MainActivity : AppCompatActivity() {
     private val channelID = "ir.adicom.app.channel1"
@@ -98,14 +101,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun setOneTimeWorkRequest() {
         val workManager = WorkManager.getInstance(applicationContext)
-        val constraints = Constraints.Builder().setRequiresCharging(true).build()
+        val constraints = Constraints.Builder()
+            .setRequiresCharging(true)
+            .setRequiredNetworkType(NetworkType.METERED)
+            .build()
+
+        PeriodicWorkRequest.Builder(
+            UploadWorker::class.java,
+            Duration.ofMinutes(15)
+        ).build()
 
         val uploadRequest = OneTimeWorkRequest.Builder(UploadWorker::class.java)
             .setConstraints(constraints)
             .build()
         workManager.enqueue(uploadRequest)
         workManager.getWorkInfoByIdLiveData(uploadRequest.id).observe(this) {
-                Log.e("TAG", it.state.name)
-            }
+            Log.e("TAG", it.state.name)
+        }
     }
 }
