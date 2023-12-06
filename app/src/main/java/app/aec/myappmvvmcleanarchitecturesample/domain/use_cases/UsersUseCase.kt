@@ -3,6 +3,7 @@ package app.aec.myappmvvmcleanarchitecturesample.domain.use_cases
 import app.aec.myappmvvmcleanarchitecturesample.domain.model.User
 import app.aec.myappmvvmcleanarchitecturesample.domain.repository.CustomRepository
 import app.aec.myappmvvmcleanarchitecturesample.utils.Response
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -15,6 +16,7 @@ class UsersUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<List<User>>> = flow {
         try {
             emit(Response.Loading())
+            delay(2000)
             val list = repository.getUsers().map {
                 it.toUser()
             }

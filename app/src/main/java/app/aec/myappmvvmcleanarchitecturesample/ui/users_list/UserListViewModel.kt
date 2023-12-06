@@ -8,7 +8,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +21,7 @@ class UserListViewModel @Inject constructor(
     fun getUsers() = viewModelScope.launch(Dispatchers.IO) {
         usersUseCase().collect {
             when (it) {
-                is Response.Error -> {
+                is Response.Success -> {
                     _usersValue.value = UserListState(userList = it.data ?: emptyList())
                 }
 
@@ -30,7 +29,7 @@ class UserListViewModel @Inject constructor(
                     _usersValue.value = UserListState(isLoading = true)
                 }
 
-                is Response.Success -> {
+                is Response.Error -> {
                     _usersValue.value = UserListState(error = it.message ?: "An Unexpected Error")
                 }
             }

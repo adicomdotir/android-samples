@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -68,8 +69,8 @@ dependencies {
     // implementation("com.google.dagger:dagger-android-support:2.48.1")
     // annotationProcessor("com.google.dagger:dagger-android-processor:2.48.1")
     // kapt("com.google.dagger:dagger-compiler:2.48.1")
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
