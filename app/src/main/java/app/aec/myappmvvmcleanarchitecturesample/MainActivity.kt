@@ -1,5 +1,6 @@
 package app.aec.myappmvvmcleanarchitecturesample
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnDownloadUserData.setOnClickListener {
             viewModel.getUsers()
+        }
+
+        binding.btnCount.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
         }
 
         CoroutineScope(Dispatchers.Main).launch {
