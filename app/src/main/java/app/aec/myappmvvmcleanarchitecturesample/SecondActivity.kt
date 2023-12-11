@@ -16,6 +16,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         car.start()
+        Log.e(MY_TAG, car.toString())
     }
 }
 
