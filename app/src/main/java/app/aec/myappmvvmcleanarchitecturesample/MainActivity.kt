@@ -7,7 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import app.aec.myappmvvmcleanarchitecturesample.data.data_source.CustomApi
+import app.aec.myappmvvmcleanarchitecturesample.data.datasources.CustomApi
 import app.aec.myappmvvmcleanarchitecturesample.databinding.ActivityMainBinding
 import app.aec.myappmvvmcleanarchitecturesample.ui.users_list.UserListViewModel
 import app.aec.myappmvvmcleanarchitecturesample.utils.Constants.Companion.MY_TAG

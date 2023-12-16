@@ -1,8 +1,6 @@
 package app.aec.myappmvvmcleanarchitecturesample.di
 
-import app.aec.myappmvvmcleanarchitecturesample.data.data_source.CustomApi
-import app.aec.myappmvvmcleanarchitecturesample.data.repository.CustomRepositoryImpl
-import app.aec.myappmvvmcleanarchitecturesample.domain.repository.CustomRepository
+import app.aec.myappmvvmcleanarchitecturesample.data.datasources.CustomApi
 import app.aec.myappmvvmcleanarchitecturesample.utils.Constants
 import dagger.Module
 import dagger.Provides

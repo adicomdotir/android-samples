@@ -19,5 +19,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "My App MVVM Clean Architecture Sample"
 include(":app")
-include(":core")
-include(":core")

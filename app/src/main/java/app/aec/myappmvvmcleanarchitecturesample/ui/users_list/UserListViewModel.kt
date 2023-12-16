@@ -2,7 +2,6 @@ package app.aec.myappmvvmcleanarchitecturesample.ui.users_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.aec.myappmvvmcleanarchitecturesample.domain.use_cases.UsersUseCase
 import app.aec.myappmvvmcleanarchitecturesample.utils.Response
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

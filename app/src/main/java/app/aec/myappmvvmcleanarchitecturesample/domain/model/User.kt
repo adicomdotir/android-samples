@@ -1,7 +1,7 @@
 package app.aec.myappmvvmcleanarchitecturesample.domain.model
 
-import app.aec.myappmvvmcleanarchitecturesample.data.data_source.dto.Address
-import app.aec.myappmvvmcleanarchitecturesample.data.data_source.dto.Company
+import app.aec.myappmvvmcleanarchitecturesample.data.datasources.dto.Address
+import app.aec.myappmvvmcleanarchitecturesample.data.datasources.dto.Company
 
 data class User(
     val address: Address,
