@@ -1,8 +1,8 @@
 package app.aec.myappmvvmcleanarchitecturesample.di
 
-import app.aec.myappmvvmcleanarchitecturesample.data.api.NewsApiService
 import app.aec.myappmvvmcleanarchitecturesample.data.datasources.NewsRemoteDataSource
-import app.aec.myappmvvmcleanarchitecturesample.data.datasources.NewsRemoteDataSourceImpl
+import app.aec.myappmvvmcleanarchitecturesample.data.repository.NewsRepositoryImpl
+import app.aec.myappmvvmcleanarchitecturesample.domain.repository.NewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,9 +14,9 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Singleton
     @Provides
-    fun provideNewsRemoteDataSource(
-        newsApiService: NewsApiService,
-    ): NewsRemoteDataSource {
-        return NewsRemoteDataSourceImpl(newsApiService)
+    fun provideNewsRepository(
+        newsRemoteDataSource: NewsRemoteDataSource
+    ): NewsRepository {
+        return NewsRepositoryImpl(newsRemoteDataSource)
     }
 }

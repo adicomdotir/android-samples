@@ -1,7 +1,8 @@
 package app.aec.myappmvvmcleanarchitecturesample.di
 
-import app.aec.myappmvvmcleanarchitecturesample.domain.repository.NewsRepository
+import android.app.Application
 import app.aec.myappmvvmcleanarchitecturesample.domain.usecases.GetNewsHeadlinesUseCase
+import app.aec.myappmvvmcleanarchitecturesample.presentation.viewmodel.NewsViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,9 +14,10 @@ import javax.inject.Singleton
 object FactoryModule {
     @Singleton
     @Provides
-    fun provideGetNewsHeadlinesUseCase(
-        newsRepository: NewsRepository
-    ): GetNewsHeadlinesUseCase {
-        return GetNewsHeadlinesUseCase(newsRepository)
+    fun provideNewsViewModelFactory(
+        application: Application,
+        getNewsHeadlinesUseCase: GetNewsHeadlinesUseCase
+    ): NewsViewModelFactory {
+        return NewsViewModelFactory(application, getNewsHeadlinesUseCase)
     }
 }
